@@ -1,0 +1,47 @@
+.guess{
+	margin-bottom: 1000px;
+}
+.guess-list{
+	padding: 10px 20px;
+	position: relative;
+	height: 85px;
+	border-bottom: solid #ddd 1px;
+}
+.guess-title{
+	width: 100%;
+	text-indent: 5%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 20px;
+	border-bottom: dashed #ccc 1px;
+}
+.guess-shop-img{
+	width: 110px;
+}
+.guess-shop-img img{
+	width: 100%;
+}
+.guess-shop-detail{
+	position: absolute;
+	width: 200px;
+	left: 130px;
+	top: 0;
+	margin-left: 15px;
+}
+.guess-active-title{
+	color: #333;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow: hidden;
+}
+.guess-shop-name{
+	margin-top: 5px;
+	color: #ccc;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow: hidden;
+}
+.guess-shop-price{
+	margin-top: 22px;
+	color: #ff0000;
+}

@@ -1,0 +1,49 @@
+.recommend{
+	width: 100%;
+}
+.recommend-container{
+	width: 100%;
+	height: 40px;
+	border-bottom: dashed #ccc 1px;
+}
+.recommend-title-container{
+	width: 90%;
+	margin: 0 auto;
+}
+.recommend-title{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	color: #999;
+	font-weight: bold;
+}
+.change-recommend-content{
+	float: right;
+	height: 40px;
+	line-height: 40px;
+	color: #999;
+}
+#recommend-shop-container{
+	width: 90%;
+	margin: 0 auto;
+	list-style: none;
+}
+.recommend-shop-list{
+	width: 48%;
+	float: left;
+	margin-right: 2%;
+	margin-top: 20px;
+}
+.recommend-shop-list img{
+	width: 100%;
+	height: 100px;
+}
+.shop-name{
+	color: #333;
+}
+.shop-price{
+	color: #ef5350;
+}
+.clear{
+	clear: both;
+}
