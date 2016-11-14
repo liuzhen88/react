@@ -3,7 +3,7 @@ import {combineReducers} from 'redux';
 const changeTodayRecommend = (state='',action) => {
 	switch(action.type){
 		case "TOADY_RECOMMEND":
-			return state;
+			return action.recommend;
 			break;
 		default:
 			return state;
@@ -27,9 +27,10 @@ const classDataReducer = (state='',action) => {
 }
 
 let rootReducer = combineReducers({
-	todayRecommend:changeTodayRecommend,
+	recommend:changeTodayRecommend,
 	guess:handleGuess,
-	classData:classDataReducer
+	classData:classDataReducer,
+	page:changeTodayRecommend
 });
 
 export default rootReducer;

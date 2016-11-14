@@ -10,7 +10,7 @@ let Recommend = ({todayRecommend,dispatch}) => {
 			<div className='recommend-container'>
 				<div className='recommend-title-container'>
 					<div className='recommend-title'>今日推荐</div>
-					<div className='change-recommend-content'>换一批</div>
+					<div className='change-recommend-content' onClick={()=>dispatch(actions.recommendAsyncAction())}>换一批</div>
 				</div>
 			</div>
 			<ul id='recommend-shop-container'>
@@ -33,7 +33,7 @@ let Recommend = ({todayRecommend,dispatch}) => {
 
 const mapStateToProps = (state) => {
 	return {
-		todayRecommend:state.todayRecommend
+		todayRecommend:state.recommend.todayRecommend
 	}
 };
 

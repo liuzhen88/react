@@ -19,6 +19,31 @@ let handleGuess = (data) => {
 	}
 };
 
+let recommendAsyncAction = () => {
+	return function(dispatch,getState){
+		var storeData = getState();
+		var page = storeData.recommend.page;
+		let recommendUrl = 'http://120.25.152.42:4000/recommend?page='+page;
+		fetch(recommendUrl)
+		.then(function(response){
+			return response.json()
+		})
+		.then(
+			data => dispatch(recommendAction(data))
+		)
+	}
+}
+
+let recommendAction = (data) => {
+	return {
+		type:'TOADY_RECOMMEND',
+		// recommendData:data.data,
+		// page:data.page
+		recommend:data
+	}
+}
+
 export default {
-	Guess:Guess
+	Guess:Guess,
+	recommendAsyncAction:recommendAsyncAction
 }
