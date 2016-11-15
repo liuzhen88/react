@@ -1,3 +1,4 @@
+const serverUrl = 'http://localhost:8000/users';
 const guessUrl = "http://120.25.152.42:4000/guess";
 
 let Guess = () => {
@@ -23,7 +24,7 @@ let recommendAsyncAction = () => {
 	return function(dispatch,getState){
 		var storeData = getState();
 		var page = storeData.recommend.page;
-		let recommendUrl = 'http://120.25.152.42:4000/recommend?page='+page;
+		let recommendUrl = serverUrl+'/recommend?page='+page;
 		fetch(recommendUrl)
 		.then(function(response){
 			return response.json()

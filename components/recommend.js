@@ -3,6 +3,7 @@ import '../style/recommend.css';
 import actions from '../actions/action';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
 let Recommend = ({todayRecommend,dispatch}) => {
 	return (
@@ -17,9 +18,16 @@ let Recommend = ({todayRecommend,dispatch}) => {
 				{
 					todayRecommend.map(function(item){
 						return <li className='recommend-shop-list' key={item.index}>
-									<a>
+									<Link to={
+										{
+											pathname:'/shopDetail',
+											query:{
+												id:item._id
+											}
+										}
+									}>
 										<img src={item.url}/>
-									</a>
+									</Link>
 									<p className='shop-name'>{item.name}</p>
 									<p className='shop-price'>{item.price}</p>
 								</li>

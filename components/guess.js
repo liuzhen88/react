@@ -4,8 +4,10 @@ import actions from '../actions/action';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import $ from 'jquery';
+import {Link} from 'react-router';
 
-const guessUrl = "http://120.25.152.42:4000/guess";
+const serverUrl = 'http://localhost:8000/users';
+const guessUrl = serverUrl+"/getGuess";
 
 var Guess = React.createClass({
 	getInitialState(){
@@ -15,7 +17,6 @@ var Guess = React.createClass({
 	},
 	componentDidMount(){
 		$.get(guessUrl, function(result) {
-			result = JSON.parse(result);
 	      	this.setState({
 	      		initData:result
 	      	});
@@ -28,14 +29,23 @@ var Guess = React.createClass({
 				{
 					this.state.initData.map(function(item){
 						return  <div className='guess-list' key={item.index}>
-									<div className='guess-shop-img'>
-										<img src={item.url}/>
-									</div>
-									<div className='guess-shop-detail'>
-										<p className='guess-active-title'>{item.name}</p>
-										<p className='guess-shop-name'>{item.name}</p>
-										<p className='guess-shop-price'>{item.price}</p>
-									</div>
+									<Link to={
+										{
+											pathname:'/shopDetail',
+											query:{
+												id:item._id
+											}
+										}
+									}>
+										<div className='guess-shop-img'>
+											<img src={item.url}/>
+										</div>
+										<div className='guess-shop-detail'>
+											<p className='guess-active-title'>{item.name}</p>
+											<p className='guess-shop-name'>{item.name}</p>
+											<p className='guess-shop-price'>{item.price}</p>
+										</div>
+									</Link>
 								</div>
 					})
 				}

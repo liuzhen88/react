@@ -6,6 +6,7 @@ import {createStore} from 'redux';
 import store from './store/store';
 import {Router,Route,Link,browserHistory} from 'react-router';
 import classDetail from './components/classDetail';
+import shopDetail from './components/shopDetail';
 
 store.subscribe(
 	() => {store.getState()}
@@ -17,6 +18,7 @@ render(
 		<Router history={browserHistory}>
 			<Route path='/' component={App}></Route>
 			<Route path='/class' component={classDetail}></Route>
+			<Route path='/shopDetail' component={shopDetail}></Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root'),

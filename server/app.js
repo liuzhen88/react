@@ -7,7 +7,13 @@ var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 var cors = require("cors");
 var config = require("./config/config");
-mongoose.connect(config.dbUrl);
+mongoose.connect(config.dbUrl,function(err){
+  if(err){
+    console.log('connect is error');
+  }else{
+    console.log('connect is success');
+  }
+});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
