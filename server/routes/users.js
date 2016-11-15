@@ -48,4 +48,12 @@ router.get('/getDetail',function(req,res){
 	});
 });
 
+router.get('/getSearchDataByKey',function(req,res){
+	guess.getSearchDataByKey(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
 module.exports = router;

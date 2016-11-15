@@ -1,5 +1,6 @@
 const serverUrl = 'http://localhost:8000/users';
 const guessUrl = "http://120.25.152.42:4000/guess";
+import $ from 'jquery';
 
 let Guess = () => {
 	return function(dispatch,getState){
@@ -44,7 +45,32 @@ let recommendAction = (data) => {
 	}
 }
 
+let searchAsyncAction = () => {
+	return function(dispatch,getState){
+		var val = $("#search-key").val();
+		val = $.trim(val);
+		if(val){	
+			let searchUrl = serverUrl+'/getSearchDataByKey?key='+val;
+			fetch(searchUrl)
+			.then(function(response){
+				return response.json();
+			})
+			.then(
+				data => dispatch(searchAction(data))
+			)
+		}
+	}
+}
+
+let searchAction = (data) => {
+	return {
+		type:'SEARCH',
+		list:data
+	}
+}
+
 export default {
 	Guess:Guess,
-	recommendAsyncAction:recommendAsyncAction
+	recommendAsyncAction:recommendAsyncAction,
+	searchAsyncAction:searchAsyncAction
 }

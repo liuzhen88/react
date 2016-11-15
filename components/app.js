@@ -4,6 +4,7 @@ import Banner from './banner';
 import Classification from './Classification';
 import Recommend from './recommend';
 import Guess from './guess';
+import Footer from './footer';
 
 let App = () => {
 	return (
@@ -12,6 +13,7 @@ let App = () => {
 			<Classification/>
 			<Recommend/>
 			<Guess/>
+			<Footer/>
 		</div>
 	)
 };

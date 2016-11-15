@@ -37,7 +37,8 @@ let initState = {
 		],
 		page:0
 	},
-	guess:[]
+	guess:[],
+	searchData:[]
 };
 
 

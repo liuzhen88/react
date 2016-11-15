@@ -72,8 +72,27 @@ function getDetail(req, res){
 	return deferred.promise;
 }
 
+function getSearchDataByKey(req, res){
+	var deferred = q.defer();
+	var key = req.query.key;
+	guessSchema.find({
+		"name":{
+			$regex:key
+		}
+	},function(err,docs){
+		if(err){
+			deferred.reject(err);
+		}else{
+			deferred.resolve(docs);
+		}
+	});
+
+	return deferred.promise;
+}
+
 module.exports = {
 	save:save,
 	getGuess:getGuess,
-	getDetail:getDetail
+	getDetail:getDetail,
+	getSearchDataByKey:getSearchDataByKey
 }
