@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',//生成source map以追踪js错误
+    devtool: 'source-map',
     entry: __dirname + "/index.js",
     output: {
         path: __dirname + "/build",

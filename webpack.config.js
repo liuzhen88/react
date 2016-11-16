@@ -1,41 +1,40 @@
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');//自动修补css浏览器前缀
+var autoprefixer = require('autoprefixer');
 module.exports = {
-    devtool: 'eval-source-map',//生成source map以追踪js错误
-    entry:  __dirname + "/index.js",//js入口
+    devtool: 'eval-source-map',
+    entry:  __dirname + "/index.js",
     output: {
-        path: __dirname + "/tmpl",//输出路径
-        filename: "bundle.js"//输出名
+        path: __dirname + "/tmpl",
+        filename: "bundle.js"
     },
 
     module:{
       loaders:[
           {
-              test:/\.js$/,//js loader
+              test:/\.js$/,
               exclude:/node_modules/,
-              loader:'babel'//更多配置在.babelrc
+              loader:'babel'
           },
           {
-              test:/\.css$/,//css loader
+              test:/\.css$/,
               loader:'style!css?!postcss'
-              // loader:'style!css?modules!postcss'//css模块化
           },
       ]
     },
 
-    devServer: {//webpack-dev-server 配置
+    devServer: {
         contentBase: "./tmpl",
         colors: true,
         historyApiFallback: true,
         inline: true,
-        hot:true//热更新
+        hot:true/
     },
     postcss:[
-        autoprefixer({browsers:['last 10 versions']})//postcss 插件
+        autoprefixer({browsers:['last 10 versions']})
     ],
 
     plugins:[
-        new webpack.BannerPlugin('Copyright Chvin'),//添加 js头
-        new webpack.HotModuleReplacementPlugin()//热更新
+        new webpack.BannerPlugin('Copyright Chvin'),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
