@@ -61,6 +61,11 @@ let ShopDetail = React.createClass({
 							· 邀请好友使用自己的邀请码注册并消费也有返佣哦！
 						</pre>
 					</div>
+					<div className='null'></div>
+					<div className='shop-action'>
+						<div className='shop-action-cart'>加入购物车</div>
+						<div className='shop-action-buy'>去支付</div>
+					</div>
 				</div>
 		)
 	}
