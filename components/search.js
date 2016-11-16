@@ -4,11 +4,17 @@ import actions from '../actions/action';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import back from 'url?limit=1000!../images/back.png';
 
 let Search = ({data,dispatch}) => {
 	return (
 		<div>
 			<div className='search-header'>
+				<div className='back-history'>
+					<Link to='/'>
+						<img src={back} width='20px'/>
+					</Link>
+				</div>
 				<div className='search-container'>
 					<input type='text' 
 						id='search-key' 

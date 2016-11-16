@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var recommand = require('../service/recommand');
 var guess = require('../service/guess');
+var classService = require('../service/class');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -50,6 +51,22 @@ router.get('/getDetail',function(req,res){
 
 router.get('/getSearchDataByKey',function(req,res){
 	guess.getSearchDataByKey(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.post('/saveClassDetail',function(req,res){
+	classService.save(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.get('/getClassDetail',function(req,res){
+	classService.getClassDetail(req,res).then(function(data){
 		res.send(data);
 	}).fail(function(err){
 		res.send(err);

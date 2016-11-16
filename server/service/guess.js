@@ -2,6 +2,7 @@ var q = require('q');
 var guessSchema = require('../schema/guessSchema');
 var config = require('../config/config');
 var recommandSchema = require('../schema/recommandSchema');
+var classSchema = require('../schema/class');
 
 function save(req, res){
 	var deferred = q.defer();
@@ -59,8 +60,20 @@ function getDetail(req, res){
 				},function(err,dd){
 					if(err){
 						deferred.reject(err);
-					}else{	
-						deferred.resolve(dd);
+					}else{
+						if(!dd){
+							classSchema.findOne({
+								'_id':id
+							},function(err,result){
+								if(err){
+									deferred.reject(err);
+								}else{
+									deferred.resolve(result);
+								}
+							});
+						}else{
+							deferred.resolve(dd);
+						}	
 					}
 				});
 			}else{

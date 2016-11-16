@@ -12,3 +12,13 @@
 	left: 10px;
 	top: 6px;
 }
+.search-list-containers{
+	height: 100px;
+	border-bottom: solid #dcdcdc 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.search-list-name{
+	color: #000;
+}
