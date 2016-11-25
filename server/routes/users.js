@@ -3,6 +3,9 @@ var router = express.Router();
 var recommand = require('../service/recommand');
 var guess = require('../service/guess');
 var classService = require('../service/class');
+var check = require('../service/check');
+var login = require('../service/login');
+var cart = require('../service/cart');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -67,6 +70,38 @@ router.post('/saveClassDetail',function(req,res){
 
 router.get('/getClassDetail',function(req,res){
 	classService.getClassDetail(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.get('/checkLogin',function(req,res){
+	check.checkLogin(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.post('/addUser',function(req,res){
+	login.addUser(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.post('/login',function(req,res){
+	login.login(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.get('/addShopCart',function(req,res){
+	cart.addShopCart(req,res).then(function(data){
 		res.send(data);
 	}).fail(function(err){
 		res.send(err);
