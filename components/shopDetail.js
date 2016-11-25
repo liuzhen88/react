@@ -6,8 +6,9 @@ import {Link} from 'react-router';
 import $ from 'jquery';
 import {Lifecycle, RouteContext } from 'react-router';
 import cookie from './cookie';
+import config from './config';
 
-const serverUrl = 'http://localhost:8000/users';
+const serverUrl = config.serverUrl;
 
 let ShopDetail = React.createClass({
 	getInitialState() {

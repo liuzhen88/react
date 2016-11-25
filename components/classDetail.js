@@ -4,8 +4,9 @@ import '../style/class-detail.css';
 import {Link} from 'react-router';
 import back from 'url?limit=1000!../images/back.png';
 import $ from 'jquery';
+import config from './config';
 
-const serverUrl = 'http://localhost:8000/users';
+const serverUrl = config.serverUrl;
 
 let ClassDetail = React.createClass({
 	getInitialState(){

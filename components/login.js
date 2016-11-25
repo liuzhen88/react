@@ -3,8 +3,9 @@ import '../style/login.css';
 import back from 'url?limit=1000!../images/back.png';
 import $ from 'jquery';
 import cookie from './cookie';
+import config from './config';
 
-const serverUrl = 'http://localhost:8000/users';
+const serverUrl = config.serverUrl;
 
 let Login = React.createClass({
 	goBack(){

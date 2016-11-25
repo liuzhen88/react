@@ -1,4 +1,6 @@
-const serverUrl = 'http://localhost:8000/users';
+import config from '../components/config';
+
+const serverUrl = config.serverUrl;
 const guessUrl = "http://120.25.152.42:4000/guess";
 import $ from 'jquery';
 

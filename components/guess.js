@@ -5,8 +5,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 import {Link} from 'react-router';
+import config from './config';
 
-const serverUrl = 'http://localhost:8000/users';
+const serverUrl = config.serverUrl;
 const guessUrl = serverUrl+"/getGuess";
 
 var Guess = React.createClass({
