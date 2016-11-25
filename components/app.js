@@ -5,18 +5,21 @@ import Classification from './Classification';
 import Recommend from './recommend';
 import Guess from './guess';
 import Footer from './footer';
+// import {RouteContext} from 'react-router';
 
-let App = () => {
-	return (
-		<div>
-			<Banner/>
-			<Classification/>
-			<Recommend/>
-			<Guess/>
-			<Footer/>
-		</div>
-	)
-};
+let App = React.createClass({
+	render(){
+		return (
+			<div>
+				<Banner/>
+				<Classification/>
+				<Recommend/>
+				<Guess/>
+				<Footer/>
+			</div>
+		)
+	}
+});
 
 export default App;
 

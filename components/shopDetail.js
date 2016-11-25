@@ -4,6 +4,8 @@ import '../style/shop-detail.css';
 import back from 'url?limit=1000!../images/back.png';
 import {Link} from 'react-router';
 import $ from 'jquery';
+import {Lifecycle, RouteContext } from 'react-router';
+import cookie from './cookie';
 
 const serverUrl = 'http://localhost:8000/users';
 
@@ -22,6 +24,31 @@ let ShopDetail = React.createClass({
 			_this.setState({
 				detailData:result
 			});
+		});
+ 
+	},
+	addShopCart(){
+		let id = this.props.location.query.id;
+		let checkLoginUrl = serverUrl+'/checkLogin?key='+cookie.getcookie('key');
+		$.ajax({
+			url:checkLoginUrl,
+			type:'get',
+			dataType:'json',
+			success:function(data){
+				if(data.code == '80001'){
+					console.log(data);
+					window.location.href = '/login'
+				}else{
+					let addShopCartUrl = serverUrl+'/addShopCart?id='+id+'&key='+cookie.getcookie('key');
+					fetch(addShopCartUrl)
+					.then(function(response){
+						return response.json();
+					})
+					.then(function(result){
+						alert(result.message);
+					});
+				}
+			}
 		});
 	},
 	render(){
@@ -63,8 +90,14 @@ let ShopDetail = React.createClass({
 					</div>
 					<div className='null'></div>
 					<div className='shop-action'>
-						<div className='shop-action-cart'>加入购物车</div>
-						<div className='shop-action-buy'>去支付</div>
+						<div className='shop-action-cart' onClick={this.addShopCart}>
+							加入购物车
+						</div>
+						<div className='shop-action-buy'>
+							<Link to='/pay'>
+								去支付
+							</Link>
+						</div>
 					</div>
 				</div>
 		)

@@ -9,6 +9,8 @@ import classDetail from './components/classDetail';
 import shopDetail from './components/shopDetail';
 import Search from './components/search';
 import My from './components/my';
+import Pay from './components/pay';
+import Login from './components/login';
 
 store.subscribe(
 	() => {store.getState()}
@@ -23,6 +25,8 @@ render(
 			<Route path='/shopDetail' component={shopDetail}></Route>
 			<Route path='/search' component={Search}></Route>
 			<Route path='/my' component={My}></Route>
+			<Route path='/pay' component={Pay}></Route>
+			<Route path='/login' components={Login}></Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root'),
