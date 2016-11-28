@@ -38,6 +38,8 @@ var cart = {
 			}else{
 				if(!docs){
 					//create
+					console.log(goodsData);
+					console.log(goodsData.comment);
 					var shopCartModel = new shopCartSchema({
 						'name':'shop_cart',
 						'username':username,
@@ -46,7 +48,9 @@ var cart = {
 								url:goodsData.url,
 								name:goodsData.name,
 								price:goodsData.price,
-								sale:goodsData.sale
+								sale:goodsData.sale,
+								shop_goods_id:goodsData._id,
+								comment:goodsData.comment
 							}
 						]
 					});
@@ -64,7 +68,9 @@ var cart = {
 						url:goodsData.url,
 						name:goodsData.name,
 						price:goodsData.price,
-						sale:goodsData.sale
+						sale:goodsData.sale,
+						shop_goods_id:goodsData._id,
+						comment:goodsData.comment
 					};
 					cartArr.push(obj);
 					shopCartSchema.update({
@@ -128,6 +134,29 @@ var cart = {
 					deferred.resolve(result);
 				}
 			}
+		});
+
+		return deferred.promise;
+	},
+	getShopCartData:function(req, res){
+		var deferred = q.defer();
+		userInfo.getUserInfo(req)
+		.then(function(info){
+			var username = info.username;
+			shopCartSchema.findOne({
+				'username':username
+			},function(err,docs){
+				if(err){
+					deferred.reject(err);
+				}else{
+					var context = config.data.success;
+					context.data = docs;
+					deferred.resolve(context); 
+				}
+			});
+		})
+		.fail(function(err){
+			deferred.reject(err);
 		});
 
 		return deferred.promise;

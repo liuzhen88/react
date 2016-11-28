@@ -5,7 +5,8 @@ var recommandModle = new mongoose.Schema({
 	name:String,
 	price:String,
 	index:String,
-	sale:String
+	sale:String,
+	comment:String
 });
 
 var recommandSchema = mongoose.model('recommand',recommandModle);

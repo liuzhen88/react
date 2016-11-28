@@ -27,3 +27,15 @@
 	margin-top: 0px;
 	font-size: 12px;
 }
+.go-to-pay{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #ff0000;
+	color: #fff;
+	line-height: 50px;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	cursor: pointer;
+}

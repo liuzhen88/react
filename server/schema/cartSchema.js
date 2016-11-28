@@ -8,7 +8,9 @@ var shopCartShcema = new mongoose.Schema({
 			url:String,
 			name:String,
 			price:String,
-			sale:String
+			sale:String,
+			shop_goods_id:String,
+			comment:String
 		}
 	]
 });

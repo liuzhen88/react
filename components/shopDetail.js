@@ -11,6 +11,9 @@ import config from './config';
 const serverUrl = config.serverUrl;
 
 let ShopDetail = React.createClass({
+	goBack(){
+		history.back();
+	},
 	getInitialState() {
 		return {
 			detailData:{}
@@ -56,10 +59,8 @@ let ShopDetail = React.createClass({
 		return (
 				<div>
 					<div className='shop-title'>商品详情
-						<div className='back'>
-							<Link to='/'>
-								<img src={back} width='20px'/>
-							</Link>
+						<div className='back' onClick={this.goBack}>
+							<img src={back} width='20px'/>
 						</div>
 					</div>
 					<img className='goods-detail' src={this.state.detailData.url}/>

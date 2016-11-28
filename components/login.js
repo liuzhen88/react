@@ -26,6 +26,7 @@ let Login = React.createClass({
 			success:function(data){
 				if(data.code == '200'){
 					var key = data.key;
+					localStorage.setItem('key',key);
 					cookie.addcookie('key',key);
 					history.back();
 				}else{
