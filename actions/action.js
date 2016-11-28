@@ -41,8 +41,6 @@ let recommendAsyncAction = () => {
 let recommendAction = (data) => {
 	return {
 		type:'TOADY_RECOMMEND',
-		// recommendData:data.data,
-		// page:data.page
 		recommend:data
 	}
 }

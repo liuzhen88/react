@@ -96,7 +96,14 @@ let ShopDetail = React.createClass({
 							加入购物车
 						</div>
 						<div className='shop-action-buy'>
-							<Link to='/pay'>
+							<Link to={
+								{
+									pathname:'/pay',
+									query:{
+										id:this.props.location.query.id
+									}
+								}
+							}>
 								去支付
 							</Link>
 						</div>

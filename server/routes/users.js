@@ -6,6 +6,7 @@ var classService = require('../service/class');
 var check = require('../service/check');
 var login = require('../service/login');
 var cart = require('../service/cart');
+var pay = require('../service/pay');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -110,6 +111,14 @@ router.get('/addShopCart',function(req,res){
 
 router.get('/getShopCartData',function(req, res){
 	cart.getShopCartData(req,res).then(function(data){
+		res.send(data);
+	}).fail(function(err){
+		res.send(err);
+	});
+});
+
+router.get('/getPayOrderDataById',function(req,res){
+	pay.getPayOrderDataById(req,res).then(function(data){
 		res.send(data);
 	}).fail(function(err){
 		res.send(err);
