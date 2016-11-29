@@ -2,8 +2,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-    devtool: 'source-map',//生成source map以追踪js错误
+var config = {
+    devtool: 'source-map',
     entry: __dirname + "/index.js",
     output: {
         path: __dirname + "/build",
@@ -23,10 +23,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: [
-                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-                ]
+                loader: 'url-loader?limit=10000'
             }
         ]
     },
@@ -44,6 +41,9 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV':'"production"'
         })
-    ],
-
+    ]
+    
 }
+
+
+module.exports = config;

@@ -1,7 +1,7 @@
 import React from 'react';
 import back from 'url?limit=1000!../images/back.png';
 import weixin from 'url?limit=1000!../images/wx.png';
-import money from 'url?limit=1000!../images/money.png';
+import zfb from 'url?limit=1000!../images/zfb.png';
 import no from 'url?limit=1000!../images/no.png';
 import yes from 'url?limit=1000!../images/yes.png';
 import '../style/pay.css';
@@ -123,8 +123,8 @@ let Pay = React.createClass({
 						</div>
 					</div>
 					<div className='pay-type-weixin' onClick={this.handleMoney}>
-						<img src={money}/>
-						<div className='pay-type-name'>现金支付</div>
+						<img src={zfb}/>
+						<div className='pay-type-name'>支付宝</div>
 						<div className='pay-type-state'>
 							<img src={this.state.state == 1 ? yes:no}/>
 						</div>
